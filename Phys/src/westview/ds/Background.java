@@ -119,15 +119,18 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 		while(n < 1 || n > 17) {
 			System.out.print("Invalid input please try again");
 			n2 = reader.nextInt();
+		
+		}
+		int n3 = reader.nextInt();
+		if(n3==69420) {
+			run();
+			
 		}
 		
 		
 		
 		reader.close();
 		
-		if((n<x1&&n<x2)||(n>x1&&n>x2)) {
-			finalVelocity = Math.pow(2*9.8*(18-n2),0.5);
-		}
 		
 		
 		System.out.println("The final velocity of the particle is -"+ finalVelocity+ " pixels per second");
@@ -138,6 +141,18 @@ public class Background extends JPanel implements ActionListener, KeyListener{
     }
     public void keyPressed(KeyEvent k) {
     	System.out.println(k.getKeyCode());
+    }
+    public static void run() {
+    	if((n<x1&&n<x2)||(n>x1&&n>x2)) {
+			finalVelocity = Math.pow(2*9.8*(18-n2),0.5);
+			n2 = 18;
+			System.out.println("running");
+    	}else {
+    		for(int i = 0; i < n2; i++) {
+    			if()
+    		}
+    	}
+		
     }
 //    public void whatTheSigma() {
 //    	double finalVelocity = Math.sqrt(Math.pow(particle.getVy(), 2)+2*particle.getAy());
