@@ -116,17 +116,15 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 		}
 		System.out.println("And finally, enter the Y position of the particle: ");
 		n2 = reader.nextInt();
-		while(n < 1 || n > 17) {
+		while(n2 < 1 || n2 > 17) {
 			System.out.print("Invalid input please try again");
 			n2 = reader.nextInt();
 		}
-		
-		
-		
 		reader.close();
 		
-		if((n<x1&&n<x2)||(n>x1&&n>x2)) {
+		if((n<x1&&n<x2)||(n>x1&&n>x2)||n2>(y1+y2)/2) {
 			finalVelocity = Math.pow(2*9.8*(18-n2),0.5);
+			
 		}
 		
 		
