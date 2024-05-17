@@ -116,7 +116,7 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 		}
 		System.out.println("And finally, enter the Y position of the particle: ");
 		n2 = reader.nextInt();
-		while(n < 1 || n > 17) {
+		while(n2 < 1 || n2 > 17) {
 			System.out.print("Invalid input please try again");
 			n2 = reader.nextInt();
 		
@@ -126,11 +126,11 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 			run();
 			
 		}
-		
-		
-		
 		reader.close();
 		
+
+		
+
 		
 		
 		System.out.println("The final velocity of the particle is -"+ finalVelocity+ " pixels per second");
@@ -149,7 +149,11 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 			System.out.println("running");
     	}else {
     		for(int i = 0; i < n2; i++) {
-    			if()
+    			if(!(n2-1==(y1+y2)/2)) {
+    				n2++;
+    				
+    			}
+    			
     		}
     	}
 		
