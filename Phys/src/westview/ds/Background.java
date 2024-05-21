@@ -51,15 +51,20 @@ public class Background extends JPanel implements ActionListener, KeyListener{
         	}
         }
         
+        for(int i = 46; i > 33 ; i--) {
+        	g.drawLine(x1*50+50,y1*50+i,x2*50+50,y2*50+i);
+        }
     
-		g.drawLine(x1*50+50,y1*50+46,x2*50+50,y2*50+46);
-		g.drawLine(x1*50+50,y1*50+47,x2*50+50,y2*50+47);
-		g.drawLine(x1*50+50,y1*50+48,x2*50+50,y2*50+48);
-		g.drawLine(x1*50+50,y1*50+49,x2*50+50,y2*50+49);
-		g.drawLine(x1*50+50,y1*50+50,x2*50+50,y2*50+50);
-		g.drawLine(x1*50+50,y1*50+51,x2*50+50,y2*50+51);
-		g.drawLine(x1*50+50,y1*50+52,x2*50+50,y2*50+52);
-		g.drawLine(x1*50+50,y1*50+53,x2*50+50,y2*50+53);
+    g.drawLine(x1*50+50,y1*50+46,x2*50+50,y2*50+46);
+	g.drawLine(x1*50+50,y1*50+47,x2*50+50,y2*50+47);
+	g.drawLine(x1*50+50,y1*50+48,x2*50+50,y2*50+48);
+	g.drawLine(x1*50+50,y1*50+49,x2*50+50,y2*50+49);
+	g.drawLine(x1*50+50,y1*50+50,x2*50+50,y2*50+50);
+	g.drawLine(x1*50+50,y1*50+51,x2*50+50,y2*50+51);
+	g.drawLine(x1*50+50,y1*50+52,x2*50+50,y2*50+52);
+	g.drawLine(x1*50+50,y1*50+53,x2*50+50,y2*50+53);
+
+	
 		Particle particle = new Particle( n, n2, 0, 0, 9.8);
 		g.fillOval(n*50+25, n2*50+25, 50, 50);
 		finalVelocity = Math.pow(Math.pow(particle.getVy(), 2)+2*particle.getAy()*(18-n2),0.5);
@@ -143,21 +148,17 @@ public class Background extends JPanel implements ActionListener, KeyListener{
     	System.out.println(k.getKeyCode());
     }
     public static void run() {
-    	if((n<x1&&n<x2)||(n>x1&&n>x2)) {
+    	if((n<x1&&n<x2)||(n>x1&&n>x2)||n2>((y1-y2)/(x1-x2))*(n-x1)+y1) {
 			finalVelocity = Math.pow(2*9.8*(18-n2),0.5);
 			n2 = 18;
 			System.out.println("running");
-    	}else {
-    		for(int i = 0; i < n2; i++) {
-    			if(!(n2-1==(y1+y2)/2)) {
-    				n2++;
-    				
-    			}
-    			
-    		}
+    	}else if(n2<((y1-y2)/(x1-x2))*(n-x1)+y1) {
+    		n2 = ((y1-y2)/(x1-x2))*(n-x1)+y1-1;
     	}
 		
     }
+    
+  
 //    public void whatTheSigma() {
 //    	double finalVelocity = Math.sqrt(Math.pow(particle.getVy(), 2)+2*particle.getAy());
 //		System.out.println(1);

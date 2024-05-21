@@ -16,13 +16,13 @@ public class Particle{
 	private double ay = -9.8;//movement variables		
 	private double ground = 330;
 
-	public Particle(int iX, int iY, int iVx, int iVy, double iAy) {
+	public Particle(int iX, int n2, int iVx, int iVy, double iAy) {
 		
 		//alter these
 		
 		
 		x = iX;
-		y = iY;
+		y = n2;
 		vx = iVx;
 		vy = iVy;
 		ay = iAy;
