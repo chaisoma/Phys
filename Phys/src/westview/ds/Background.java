@@ -153,7 +153,12 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 			n2 = 18;
 			System.out.println("running");
     	}else if(n2<((y1-y2)/(x1-x2))*(n-x1)+y1) {
-    		n2 = ((y1-y2)/(x1-x2))*(n-x1)+y1-1;
+    		if (y1 == y2) {
+    			int temp = ((y1-y2)/(x1-x2))*(n-x1)+y1-1;
+    			double vinit = Math.pow(2*9.8*(temp-n2),0.5); 
+    		}
+    		
+    		//Particle.setY(n2*50+25);
     	}
 		
     }

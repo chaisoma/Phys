@@ -11,10 +11,10 @@ public class Particle{
 	
 
 	
-	private int x, y;						//position of the object
-	private double vx, vy;	
-	private double ay = -9.8;//movement variables		
-	private double ground = 330;
+	static int x, y;						//position of the object
+	static double vx, vy;	
+	static double ay = -9.8;//movement variables		
+	static double ground = 330;
 
 	public Particle(int iX, int n2, int iVx, int iVy, double iAy) {
 		
@@ -36,25 +36,25 @@ public class Particle{
 		
 	}
 	
-	public void setX(int ix) {
+	public static void setX(int ix) {
 		x = ix;
 	}
 	public int getX() {
 		return x;
 	}
-	public void setY(int iy) {
+	public static void setY(int iy) {
 		y = iy;
 	}
 	public int getY() {
 		return y;
 	}
-	public void setVx(double ivx) {
+	public static void setVx(double ivx) {
 		vx = ivx;
 	}
 	public double getVx() {
 		return vx;
 	}
-	public void setVy(double ivy) {
+	public static void setVy(double ivy) {
 		vy = ivy;
 	}
 	public double getVy() {
@@ -63,12 +63,12 @@ public class Particle{
 	public double getAy() {
 		return ay;
 	}
-	public void setAy(double iay) {
+	public static void setAy(double iay) {
 		ay = iay;
 	}
 
 	
-	public void setGround(double iground) {
+	public static void setGround(double iground) {
 		ground = iground;
 	}
 	public double getGround() {
