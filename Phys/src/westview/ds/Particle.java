@@ -31,6 +31,7 @@ public class Particle{
 		
 		
 		
+		
 						//initialize the location of the image
 									//use your variables
 		

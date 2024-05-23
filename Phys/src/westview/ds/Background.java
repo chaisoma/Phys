@@ -22,7 +22,13 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 	static int x2;
 	static int y2;
 	static double finalVelocity;
+	static double vf;
+	static double vi;
+	static double vmy;
+	static double vmx;
+	static double vm;
 	static String str;
+	static int temp;
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -153,10 +159,38 @@ public class Background extends JPanel implements ActionListener, KeyListener{
 			n2 = 18;
 			System.out.println("running");
     	}else if(n2<((y1-y2)/(x1-x2))*(n-x1)+y1) {
+    		temp = ((y1-y2)/(x1-x2))*(n-x1)+y1-1;
+			vi = Math.pow(2*9.8*(temp-n2),0.5); 
     		if (y1 == y2) {
-    			int temp = ((y1-y2)/(x1-x2))*(n-x1)+y1-1;
-    			double vinit = Math.pow(2*9.8*(temp-n2),0.5); 
+    			n2 = y1-1;
+    			System.out.println(vi);
     		}
+    		else if(y2>y1) {
+    			double aX = Math.sin(Math.atan(Math.abs((y1-y2)/(x1-x2))));
+    			vm = Math.sqrt(Math.pow(vi*aX, 2)+2*aX*9.8*(Math.sqrt(Math.pow(y2-n2, 2)+Math.pow(x2-n, 2))));
+        		vmy = Math.sin(vm);
+        		vmx = Math.cos(vm);
+        		vf = Math.sqrt(Math.pow(vmy,2)+2*9.8*(18-y2));
+        		double time = (vf-vmy)/9.8;
+        		n2 = 18;
+        		n = x2+(int)(time*vmx);
+        		finalVelocity = Math.sqrt(Math.pow(vf,2)+Math.pow(vmx, 2));
+        		System.out.println(finalVelocity);
+    		}else {
+    			double aX = Math.sin(Math.atan(Math.abs((y1-y2)/(x1-x2))));
+    			vm = Math.sqrt(Math.pow(vi*aX, 2)+2*aX*9.8*(Math.sqrt(Math.pow(y1-n2, 2)+Math.pow(x1-n, 2))));
+        		vmy = Math.sin(vm);
+        		vmx = Math.cos(vm);
+        		vf = Math.sqrt(Math.pow(vmy,2)+2*9.8*(18-y1));
+        		double time = (vf-vmy)/9.8;
+        		n2 = 18;
+        		n = x1-(int)(time*vmx);
+        		finalVelocity = Math.sqrt(Math.pow(vf,2)+Math.pow(vmx, 2));
+        		System.out.println(finalVelocity);
+    		}
+    		
+    		
+    		
     		
     		//Particle.setY(n2*50+25);
     	}
